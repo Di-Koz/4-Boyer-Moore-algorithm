@@ -20,7 +20,7 @@ int main() {
 		dlinaTableSdvig{dlinaSubStroka - 1}, ind{0};
 	string sdvigSymbol{ "" };
 	int* sdvigNumber = new int[dlinaTableSdvig] {0};
-	//создание таблицы сдвигов
+	//СЃРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ СЃРґРІРёРіРѕРІ
 	for (int i{dlinaSubStroka - 2}; i >= 0; --i) {
 		if (checkSymbol(sdvigSymbol, subStroka[i]) == -1) {
 			sdvigSymbol += subStroka[i];
@@ -32,7 +32,7 @@ int main() {
 		}
 
 	}
-	//вывожу чисто для проверки
+	//РІС‹РІРѕР¶Сѓ С‡РёСЃС‚Рѕ РґР»СЏ РїСЂРѕРІРµСЂРєРё
 	cout << "symbols in tableSdvig: " << sdvigSymbol << endl << "their sdvigi: ";
 	for (int i{0}; i < dlinaTableSdvig ; ++i) {
 		cout << sdvigNumber[i] << " ";
