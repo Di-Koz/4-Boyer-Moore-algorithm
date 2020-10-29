@@ -58,34 +58,34 @@ std::string printTableSdvig(std::string str, std::string subStr,
 		for (int i{ konechInd - dlinaSubStroka + 1 }; i <= konechInd; ++i) {
 			newSubStr += str[i];
 		}
-		//если сразу же нет совпадений 			
+		//РµСЃР»Рё СЃСЂР°Р·Сѓ Р¶Рµ РЅРµС‚ СЃРѕРІРїР°РґРµРЅРёР№ 			
 		if (newSubStr[dlinaSubStroka - 1] != subStr[dlinaSubStroka - 1]) {
-			//если этот символ есть в таблице сдвигов
+			//РµСЃР»Рё СЌС‚РѕС‚ СЃРёРјРІРѕР» РµСЃС‚СЊ РІ С‚Р°Р±Р»РёС†Рµ СЃРґРІРёРіРѕРІ
 			if (findSymbolInSdvigSymbol(symbolOfSdvig, newSubStr[dlinaSubStroka - 1]) != -1) {
 				int indInSymbolSdvig = findSymbolInSdvigSymbol(symbolOfSdvig, newSubStr[dlinaSubStroka - 1]);
 				sdvig = numberOfSdvig[indInSymbolSdvig];
 			}
-			//если его нет
+			//РµСЃР»Рё РµРіРѕ РЅРµС‚
 			else {
 				sdvig = dlinaSubStroka;
 			}
 			konechInd += sdvig;
 			sdvigi += std::to_string(sdvig);
 		}
-		//если есть хотя бы одно совпадение
+		//РµСЃР»Рё РµСЃС‚СЊ С…РѕС‚СЏ Р±С‹ РѕРґРЅРѕ СЃРѕРІРїР°РґРµРЅРёРµ
 		else {
 			int ind{ dlinaSubStroka - 1 };
-			//пока есть совпадения
+			//РїРѕРєР° РµСЃС‚СЊ СЃРѕРІРїР°РґРµРЅРёСЏ
 			while ((ind >= 0) && (newSubStr[ind] == subStr[ind])) {
 				++sdvig;
 				--ind;
 			}
-			//если мы полностью прошли и цикл не прервался
+			//РµСЃР»Рё РјС‹ РїРѕР»РЅРѕСЃС‚СЊСЋ РїСЂРѕС€Р»Рё Рё С†РёРєР» РЅРµ РїСЂРµСЂРІР°Р»СЃСЏ
 			if (sdvig == dlinaSubStroka) {
 				isFounded = true;
 				goto end;
 			}
-			//если прервался, сдвигаем на столько, сколько прошли
+			//РµСЃР»Рё РїСЂРµСЂРІР°Р»СЃСЏ, СЃРґРІРёРіР°РµРј РЅР° СЃС‚РѕР»СЊРєРѕ, СЃРєРѕР»СЊРєРѕ РїСЂРѕС€Р»Рё
 			else {
 				konechInd += sdvig;
 				sdvigi += std::to_string(sdvig);
@@ -93,7 +93,7 @@ std::string printTableSdvig(std::string str, std::string subStr,
 		}
 	end:;
 	} while (!isFounded && konechInd <= dlinaStroka);
-	//если мы просто прошли, но не нашли подстроку
+	//РµСЃР»Рё РјС‹ РїСЂРѕСЃС‚Рѕ РїСЂРѕС€Р»Рё, РЅРѕ РЅРµ РЅР°С€Р»Рё РїРѕРґСЃС‚СЂРѕРєСѓ
 	if (!isFounded) {
 		return "sorry, there is no your substring";
 	}
